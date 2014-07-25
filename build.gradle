@@ -86,6 +86,17 @@ subprojects {
     }
 }
 
+uploadArchives {
+    repositories {
+        mavenDeployer {
+             repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+             pom.version = "${version}"
+             pom.artifactId = "spek"
+             pom.groupId = "com.github.K0zka"
+        }
+    }
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = 1.11
 
