@@ -101,6 +101,23 @@ uploadArchives {
                          distribution 'repo'
                      }
                  }
+                 dependencies {
+                     dependency {
+                         groupId 'org.jetbrains.kotlin'
+                         artifactId 'kotlin-stdlib'
+                         version "${kotlinVersion}"
+                     }
+                     dependency {
+                         groupId 'org.jetbrains.kotlin'
+                         artifactId 'kotlin-runtime'
+                         version "${kotlinVersion}"
+                     }
+                     dependency {
+                         groupId 'junit'
+                         artifactId 'junit'
+                         version '4.11'
+                     }
+                 }
              }
         }
     }
