@@ -93,6 +93,15 @@ uploadArchives {
              pom.version = "${version}"
              pom.artifactId = "spek"
              pom.groupId = "com.github.K0zka"
+             pom.project {
+                 licenses {
+                     license {
+                         name 'BSD License'
+                         url 'http://opensource.org/licenses/BSD-3-Clause'
+                         distribution 'repo'
+                     }
+                 }
+             }
         }
     }
 }
