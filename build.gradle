@@ -89,7 +89,9 @@ subprojects {
 uploadArchives {
     repositories {
         mavenDeployer {
+             beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
              repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+             snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/")
              pom.version = "${version}"
              pom.artifactId = "spek"
              pom.groupId = "com.github.K0zka"
@@ -100,6 +102,11 @@ uploadArchives {
                          url 'http://opensource.org/licenses/BSD-3-Clause'
                          distribution 'repo'
                      }
+                 }
+                 scm {
+                     connection 'scm:git:https://github.com/K0zka/spek'
+                     developerConnection 'scm:git:https://github.com/K0zka/spek'
+                     url 'https://github.com/K0zka/spek'
                  }
                  dependencies {
                      dependency {
@@ -116,6 +123,23 @@ uploadArchives {
                          groupId 'junit'
                          artifactId 'junit'
                          version '4.11'
+                     }
+                 }
+                 developers {
+                     developer {
+                         id 'jonnyzzz'
+                         name 'Eugene Petrenko'
+                         url 'https://github.com/jonnyzzz'
+                     }
+                     developer {
+                         id 'hhariri'
+                         name 'Hadi Hariri'
+                         url 'https://github.com/hhariri'
+                     }
+                     developer {
+                         id 'orangy'
+                         name 'Ilya Ryzhenkov'
+                         url 'https://github.com/orangy'
                      }
                  }
              }
@@ -138,3 +162,8 @@ task wrapper(type: Wrapper) {
     }
 
 }
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
